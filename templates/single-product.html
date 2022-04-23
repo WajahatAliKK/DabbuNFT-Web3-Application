@@ -1,0 +1,340 @@
+{% extends "base.html" %}
+
+{% block head%}
+<link rel="stylesheet" href="{{url_for('static', filename='assets/css/flex-slider.css')}}">
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+<!-- Single Starts Here -->
+<div class="single-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h1>{{tkntype}}</h1>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="product-slider">
+                    <div id="slider" class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <img loading="lazy" src="{{image_path}}"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="right-content">
+                    <div class="tokenid ">
+                        <img loading="lazy" src="{{url_for('static',filename='assets/images/coins.png')}}"><h5 id="tid">#{{tknno}}</h5>
+                    </div>
+
+                    <h1>{{name}}</h1>
+                    <div class="tokenprice">
+                        <img loading="lazy" src="{{url_for('static',filename='assets/images/ethereum.png')}}"><h5>{{price}} ETH</h5>
+                    </div>
+                    <div class="tokenprice2" style="margin-top:15px;">
+                        <h5 id="raretkn">{{rarity}}</h5>
+                    </div>
+                    <div class="tokenprice2">
+
+                        {% if rarity == 'Basic' and tkntype == 'Standard Token' %}
+                        <!--                        <label for="cars">Choose a car:</label>-->
+                        <select name="desc" id="desc">
+                            {% for a in range(15) %}
+                            {% set tknno = ((tknno|float)|int)+a %}
+                            {% set tknno = (tknno|string) %}
+                            {% set tknno = tknno.zfill(4) %}
+                            <option value="{{tknno}}">({{a+1}} of 15)</option>
+                            {% endfor %}
+                        </select>
+                        {% elif rarity == 'Elements' and tkntype == 'Standard Token' %}
+                        <!--                        <label for="cars">Choose a car:</label>-->
+                        <select name="desc" id="desc">
+                            {% for a in range(5) %}
+                            {% set tknno = ((tknno|float)|int)+a %}
+                            {% set tknno = (tknno|string) %}
+                            {% set tknno = tknno.zfill(4) %}
+                            <option value="{{tknno}}">({{a+1}} of 5)</option>
+                            {% endfor %}
+                        </select>
+                        {% elif rarity == 'Legendary' and tkntype == 'Christmas Special Token' %}
+                        <!--                        <label for="cars">Choose a car:</label>-->
+                        <select name="desc" id="desc">
+                            {% for a in range(5) %}
+                            {% set tknno = ((tknno|float)|int)+a %}
+                            {% set tknno = (tknno|string) %}
+                            {% set tknno = tknno.zfill(4) %}
+                            <option value="{{tknno}}">({{a+1}} of 5)</option>
+                            {% endfor %}
+                        </select>
+                        {% elif rarity == 'Special' and tkntype == 'Christmas Special Token' %}
+                        <!--                        <label for="cars">Choose a car:</label>-->
+                        <select name="desc" id="desc">
+                            {% for a in range(10) %}
+                            {% set tknno = ((tknno|float)|int)+a %}
+                            {% set tknno = (tknno|string) %}
+                            {% set tknno = tknno.zfill(4) %}
+                            <option value="{{tknno}}">({{a+1}} of 10)</option>
+                            {% endfor %}
+                        </select>
+                        {% elif rarity == 'Ultimate'%}
+                        <!--                        <label for="cars">Choose a car:</label>-->
+                        <select name="desc" id="desc">
+                            {% for a in range(5) %}
+                            {% set tknno = ((tknno|float)|int)+a %}
+                            {% set tknno = (tknno|string) %}
+                            {% set tknno = tknno.zfill(4) %}
+                            <option value="{{tknno}}">({{a+1}} of 5)</option>
+                            {% endfor %}
+                        </select>
+                        {% else %}
+                        <h5>{{tkndesc}}</h5>
+                        {% endif %}
+                    </div>
+
+                    <div class="row sid">
+                        <div class="col-md-6">
+                            <div class="signlelf">
+                                <img loading="lazy" src="{{url_for('static',filename='assets/images/etherscan-badge-white.png')}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="singlerght">
+                                <img loading="lazy" src="{{url_for('static',filename='assets/images/opeansea-badge-white.png')}}">
+                            </div>
+                        </div>
+                    </div>
+
+                  {%if tkntype != 'Character Token' %}
+                        <a id="mintbtn" onclick="mintTransaction()">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="signlest">
+                                        <h5>Mint</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a id="mintbtn1" style="display:none;">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="signlest1">
+                                        <h5>SOLD</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                  {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Single Page Ends Here -->
+
+<!-- Similar Starts Here -->
+<div class="featured-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h1>You May Also Like</h1>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme">
+                    {% for data in relevant_images %}
+                    {% if not data[0] == pageno %}
+                    <a href="{{url_for('single_product', name=data[1],tknno=data[2],price=data[6],tkntype=data[4],tkndesc=data[3],pageno=data[0],rarity=data[5])}}?image_path={{data[-1]}}&category={{selected_category}}">
+                        <div class="featured-item">
+                            <img loading="lazy" src="{{data[-1]}}" alt="Item 1">
+                            <h4>{{data[1]}}</h4>
+                            <h6>{{data[6]}} ETH</h6>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Similar Ends Here -->
+
+
+<!-- Footer Starts Here -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="logo">
+                    <h4>Dabbu</h4>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="footer-menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">How It Works ?</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer Ends Here -->
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{{url_for('static',filename='assets/js/isotope.js')}}"></script>
+<script src="{{url_for('static', filename='assets/js/flex-slider.js')}}"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script language="text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+</script>
+
+<script language="JavaScript">
+
+  async function mintTransaction(){
+           if(window.localStorage.getItem('wall') == 'Metamask' || window.localStorage.getItem('wall') == 'Portis'){
+            await window.ethereum.enable();
+            window.web3 = new Web3(window.ethereum);
+            var accounts = await web3.eth.getAccounts();
+            account = accounts[0];
+            contract = new web3.eth.Contract(ABI, ADDRESS);
+            document.getElementById("walletBtn").innerHTML = 'Connected : ' + '<p>' + account;
+<!--            var contract = window.localStorage.getItem('contract');-->
+            var tkn = document.getElementById('tid').textContent;
+            var rarity = document.getElementById('raretkn').textContent;
+              if(tkn.length == 5){
+                  tkn = tkn.slice(1, 5)
+              }
+
+                if(rarity == 'Basic'){
+                  contract.methods.mint(account,tkn).send({from: account, value: "70000000000000000"})
+               }
+                if(rarity == 'Elements'){
+                 contract.methods.mint(account,tkn).send({from: account, value: "80000000000000000"})
+               }
+                if(rarity == 'Special'){
+                 contract.methods.mint(account,tkn).send({from: account, value: "90000000000000000"})
+               }
+                if(rarity == 'Legendary'){
+                 contract.methods.mint(account,tkn).send({from: account, value: "100000000000000000"})
+               }
+                if(rarity == 'Ultimate'){
+                 contract.methods.mint(account,tkn).send({from: account, value: "500000000000000000"})
+               }
+              }
+              else{
+                 alert(" Connect Your Wallet");
+              }
+};
+
+
+<!--    async function minted()-->
+<!--    {-->
+<!--        var tkn = document.getElementById('tid').textContent;-->
+<!--        if(tkn.length == 5){-->
+<!--            tkn = tkn.slice(1, 5);-->
+<!--        }-->
+<!--        tkn = parseInt(tkn);-->
+<!--        {% for data in mint %}-->
+<!--            var temp = parseInt(JSON.stringify({{data}}).replace(/[^a-zA-Z0-9 ]/g, ""))-->
+<!--            console.log(temp)-->
+<!--            if(tkn == temp){-->
+<!--                document.getElementById('mintbtn').style.display="none";-->
+<!--                document.getElementById('mintbtn1').style.display="block";-->
+<!--            }-->
+<!--         {% endfor %}-->
+<!--    };-->
+<!--minted();-->
+
+    async function onloadh() {
+        window.web3 = new Web3(window.ethereum);
+        contract = new web3.eth.Contract(ABI, ADDRESS)
+        var tkn = document.getElementById('tid').textContent;
+        if(tkn.length == 5){
+                  tkn = tkn.slice(1, 5)
+              }
+        try{
+            let listminted = false;
+            tkntemp = parseInt(tkn);
+            console.log(listminted);
+            {% for data in mint %}
+                var temp = parseInt(JSON.stringify({{data}}).replace(/[^a-zA-Z0-9 ]/g, ""))
+                if(tkntemp == temp){
+                    console.log("Found");
+                    listminted = true;
+                }
+            {% endfor %}
+            if(listminted){
+            document.getElementById('mintbtn').style.display="none";
+            document.getElementById('mintbtn1').style.display="block";
+            minted = null;
+            return;
+            }
+            var minted = await contract.methods.tokenURI(tkn).call()
+            if(minted){
+            document.getElementById('mintbtn').style.display="none";
+            document.getElementById('mintbtn1').style.display="block";
+            minted = null;
+          }
+        }
+        catch(ex){
+            document.getElementById('mintbtn').style.display="block";
+            document.getElementById('mintbtn1').style.display="none";
+            document.getElementById('mintbtn').style.cursor="pointer";
+        }
+    };
+
+onloadh();
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#desc").change(function () {
+            var selectedText = $(this).find("option:selected").text();
+            var selectedValue = $(this).val();
+            $("#tid").text("#"+selectedValue);
+            onloadh();
+        });
+<!--        $('#desc').change(function(){onloadh();});-->
+
+    });
+</script>
+{% endblock %}
+

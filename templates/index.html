@@ -1,0 +1,1228 @@
+{% extends "base.html" %}
+
+{% block style %}
+
+.pagination {
+display: block;
+width: 75%;
+margin: 1em auto;
+text-align: center;
+
+&:after {
+content: '';
+clear: both;
+}
+}
+
+
+.paginations {
+display: block;
+width: 75%;
+margin: 1em auto;
+text-align: center;
+
+&:after {
+content: '';
+clear: both;
+}
+}
+
+.paginationss {
+display: block;
+width: 75%;
+margin: 1em auto;
+text-align: center;
+
+&:after {
+content: '';
+clear: both;
+}
+}
+
+.paginations-button {
+display: inline-block;
+padding: 5px 10px;
+border: 1px solid #e0e0e0;
+background-color: #eee;
+color: #333;
+cursor: pointer;
+transition: background 0.1s, color 0.1s;
+
+&:hover {
+background-color: #ddd;
+color: #3366cc;
+}
+
+&:active {
+background-color: #bbb;
+border-color: #bbb;
+color: #3366cc;
+}
+
+$border-radius: 18px;
+
+&:first-of-type {
+border-radius: $border-radius 0 0 $border-radius;
+}
+
+&:last-of-type {
+border-radius: 0 $border-radius $border-radius 0;
+}
+}
+
+.paginationss-button {
+display: inline-block;
+padding: 5px 10px;
+border: 1px solid #e0e0e0;
+background-color: #eee;
+color: #333;
+cursor: pointer;
+transition: background 0.1s, color 0.1s;
+
+&:hover {
+background-color: #ddd;
+color: #3366cc;
+}
+
+&:active {
+background-color: #bbb;
+border-color: #bbb;
+color: #3366cc;
+}
+
+$border-radius: 18px;
+
+&:first-of-type {
+border-radius: $border-radius 0 0 $border-radius;
+}
+
+&:last-of-type {
+border-radius: 0 $border-radius $border-radius 0;
+}
+}
+
+
+.pagination-button {
+display: inline-block;
+padding: 5px 10px;
+border: 1px solid #e0e0e0;
+background-color: #eee;
+color: #333;
+cursor: pointer;
+transition: background 0.1s, color 0.1s;
+
+&:hover {
+background-color: #ddd;
+color: #3366cc;
+}
+
+&:active {
+background-color: #bbb;
+border-color: #bbb;
+color: #3366cc;
+}
+
+$border-radius: 18px;
+
+&:first-of-type {
+border-radius: $border-radius 0 0 $border-radius;
+}
+
+&:last-of-type {
+border-radius: 0 $border-radius $border-radius 0;
+}
+}
+
+/* arbitrary styles */
+.heading { text-align: center; max-width: 500px; margin: 20px auto; }
+
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+<!-- Banner Starts Here -->
+<div class="banner">
+    <div class="container">
+    </div>
+</div>
+<!-- Banner Ends Here -->
+
+<!--Video section-->
+<div class="featured-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h1>What is Dabbu?</h1>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <center>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/0PVdEpWrH-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- video section Ends Here -->
+
+<!-- Featured Starts Here -->
+
+<div class="featured-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h1>Standard Token</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="featured container no-gutter">
+
+    <div class="row posts">
+        {% for datas in stddata %}
+        <div id="1" class="item article-loop new col-md-4">
+            <!--            <a href="#">-->
+            <div class="featured-item">
+                <img loading="lazy" src="{{datas[-1]}}" alt="Loading Image ...">
+                <h4>{{datas[1]}}</h4>
+                <h6>{{datas[4]}}</h6>
+            </div>
+            <!--            </a>-->
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!--LOAD MORE BUTTON-->
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 Load">
+        <center><a class="Laodmorebtn" href="/original">Show More</a></center>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+<div class="featured-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h1>Christmas Special Token</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="featured container no-gutter ">
+
+    <div class="row posts ">
+        {% for datas in data %}
+        <div class="item Christmas new col-md-4">
+            <!--            <a href="#">-->
+            <div class="featured-item">
+                <img loading="lazy" src="{{datas[-1]}}" alt="Loading Image ...">
+                <h4>{{datas[1]}}</h4>
+                <h6>{{datas[4]}}</h6>
+            </div>
+            <!--            </a>-->
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 Load">
+        <center><a class="Laodmorebtn" href="/coloured">Show More</a></center>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<div class="featured-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h1>Character Token</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="featured container no-gutter">
+    <div class="row posts">
+        {% for datas in chardata %}
+        <div id="" class="item article-looppp new col-md-4">
+            <!--            <a href="#"methods="post"> -->
+            <div class="featured-item">
+                <img loading="lazy" loading="lazy" src="{{datas[-1]}}" alt="Loading Image ...">
+                <h4>{{datas[1]}}</h4>
+                <h6>{{datas[4]}}</h6>
+            </div>
+            <!--            </a>-->
+        </div>
+        {% endfor %}
+    </div>
+    <!--        <div class="row posts" >-->
+    <!--          {% for datas in chardata %}-->
+    <!--            <div id="1" class="item article-looppp  new col-md-4">-->
+    <!--              <a href="single-product.html">-->
+    <!--                <div class="featured-item">-->
+    <!--                  <img loading="lazy" src="{{url_for('static', filename = ''+datas[-1])}}" alt="">-->
+    <!--                  <h4>{{datas[1]}}</h4>-->
+    <!--                  <h6>{{datas[4]}}</h6>-->
+    <!--                </div>-->
+    <!--              </a>-->
+    <!--            </div>-->
+    <!--        {% endfor %}-->
+
+    <!--        </div>-->
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 Load">
+        <center><a class="Laodmorebtn" href="{{url_for('character')}}">Show More</a></center>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<!--FAQs start-->
+<div class="container">
+    <h3 class="title text-center" style="">FREQUENTLY ASKED QUESTIONS (FAQ)</h3>
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div style="padding: 80px 0" class="col-md-8 about" style="margin-top: 5%;">
+            <button class="accordion">What is Dabbu NFT? <i class="fa fa-chevron-down"></i></button>
+            <div class="panels">
+                <p>1. The world’s first ever black & white, hand-drawn, NFT comics and illustrations, based on the lives
+                    of domestic pets.</p>
+                <p>2. Real-life events from the late 1960s and early 1970s.</p>
+            </div>
+            <button class="accordion">What blockchain is Dabbu NFT on? <i class="fa fa-chevron-down"></i></button>
+            <div class="panels">
+                <p>Dabbu NFT is on the Ethereum blockchain and the token standard is of the premium ERC-721 Non-Fungible
+                    Token.</p>
+            </div>
+            <button class="accordion">Is Dabbu NFT a programmatically generated project? <i
+                    class="fa fa-chevron-down"></i></button>
+            <div class="panels">
+                <p>1. Dabbu NFT is NOT a programmatically generated project.</p>
+                <p>2. NONE of the individual bases (characters) and assets (objects / traits / surroundings) of a
+                    particular piece is replicated in another piece.</p>
+                <p>3. Permutations and combinations are NOT used as part of algorithms to randomly generate the
+                    subsequent pieces.</p>
+                <p>4. Instead, each artwork (and subsequently, each final NFT) is individually crafted using hours of
+                    effort.</p>
+                <p>5. Comics and illustrations are the original paper pieces that were hand-drawn years ago. They are
+                    now digitalized and can be minted as NFT.</p>
+                <p>6. To wrap it up, the rarity of Dabbu NFT is not only on the pieces. The rarity is on the ENTIRE
+                    PROJECT itself. A top tier of the 1/1 NFT collection.</p>
+            </div>
+            <button class="accordion">What is the max supply? <i class="fa fa-chevron-down"></i></button>
+            <div class="panels">
+                <p>6425.</p>
+            </div>
+            <button class="accordion">Are all comics and illustrations unique? <i class="fa fa-chevron-down"></i>
+            </button>
+            <div class="panels">
+                <p>1. Every piece of comic and illustration is unique from one another.</p>
+                <p>2. There are a total of 217 comics and illustrations creatively made.</p>
+                <p>3. The 217 pieces are then derived in several unique versions that will be available for minting.</p>
+                <p>4. These derived versions make up the max supply of 6425 pieces.</p>
+                <p>5. The versions are basically themes that will then determine the rarity of the Dabbu Token.</p>
+                <p>6. There are a total of 3 categories to choose from, launched on 3 separate dates: <br>a) 130
+                    Standard Token <br>b) 53 Christmas Special Token <br>c) 34 Character Token </p>
+                <p>7. There are a total of 5 rarities to choose from, and each rarity will have a different minting
+                    price. Rarities are listed below in ascending order: <br>a) <span
+                            style="color: red;">Basic</span><br>b) <span style="color: #777BDF;">Element</span><br>c)
+                    <span style="color: #965897;">Special</span><br>d) <span
+                            style="color: #3AA258;">Legendary</span><br>e) <span
+                            style="color:  #36B5E3;">Ultimate</span></p>
+                <p>8. Minting prices will be revealed soon.</p>
+                <table id="customers">
+                    <tr>
+                        <th>NO</th>
+                        <th>CATEGORY & RARITY</th>
+                        <th>UNITS PER RARITY</th>
+                        <th>UNITS PER PIECE</th>
+                        <th>TOTAL PIECES</th>
+                        <th>MINTING PRICE (ETH)</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>130 Standard Token</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td class="red">Orginal</td>
+                        <td>130</td>
+                        <td>15</td>
+                        <td>1950</td>
+                        <td>0.07</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="blue">Earth</td>
+                        <td>130</td>
+                        <td>5</td>
+                        <td>650</td>
+                        <td>0.08</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="blue">Water</td>
+                        <td>130</td>
+                        <td>5</td>
+                        <td>650</td>
+                        <td>0.08</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="blue">Fire</td>
+                        <td>130</td>
+                        <td>5</td>
+                        <td>650</td>
+                        <td>0.08</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="blue">Air</td>
+                        <td>130</td>
+                        <td>5</td>
+                        <td>650</td>
+                        <td>0.08</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td class="blue">Space</td>
+                        <td>130</td>
+                        <td>5</td>
+                        <td>650</td>
+                        <td>0.08</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td class="purple">Manuscript (Rewind)</td>
+                        <td>130</td>
+                        <td>1</td>
+                        <td>130</td>
+                        <td>0.09</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td class="green">Metaverse (Fast-Forward)</td>
+                        <td>130</td>
+                        <td>1</td>
+                        <td>130</td>
+                        <td>0.1</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>5460</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>53 Christmas Special Token</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td class="purple">Christmassy</td>
+                        <td>53</td>
+                        <td>10</td>
+                        <td>530</td>
+                        <td>0.09</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="green">Metaverse 2022</td>
+                        <td>53</td>
+                        <td>5</td>
+                        <td>265</td>
+                        <td>0.1</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>795</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>34 Character Token</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td class="lightblue">Profile</td>
+                        <td>17</td>
+                        <td>5</td>
+                        <td>85</td>
+                        <td>0.5</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="lightblue">Fancy</td>
+                        <td>17</td>
+                        <td>5</td>
+                        <td>85</td>
+                        <td>0.5</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>6425</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <button class="accordion">What are the creators’ favorite highlight of the collection?<i
+                    class="fa fa-chevron-down"></i></button>
+            <div class="panels">
+                <p>1. Dabbu NFT functions as great collectibles for animal lovers.</p>
+                <p>2.Each work revolves around the unaltered lives of domestic pets.</p>
+                <p>3. Dabbu NFT functions as great collectibles for animal lovers.</p>
+            </div>
+            <button class="accordion">Is there a royalty fee on secondary market? <i class="fa fa-chevron-down"></i>
+            </button>
+            <div class="panels">
+                <p>1. There will be a royalty fee of 10% for each sale on secondary market.</p>
+                <p>2. However, a percentage of every royalty fee will be put into a special entitlement fund for Dabbu
+                    owners.</p>
+                <p>3. This special entitlement fund will be used for the full-fledged development of our merchandising
+                    project, in which all Dabbu owners will benefit profit-sharing privileges.</p>
+            </div>
+            <button class="accordion">What makes this collection so special?<i class="fa fa-chevron-down"></i></button>
+            <div class="panels">
+                <p>1. Each comic and illustration has a unique title description for collectors to have an easy
+                    reference check.</p>
+                <p>2. Full comic storyboards and illustrations are visible for everyone (including non-owners) to enjoy
+                    the adventures of Dabbu.</p>
+                <p>3. Minting is not randomized.</p>
+                <p>4. Collectors can carefully view each piece before deciding on which to mint.</p>
+                <p>5. All the above ultimately enhances resale value for owners if they intend to resell, as the NFT is
+                    not hidden and potential collectors will know exactly what they are getting into.</p>
+            </div>
+            <button class="accordion">Will there be another release if I miss this collection? <i
+                    class="fa fa-chevron-down"></i></button>
+            <div class="panels">
+                <p>1. Dabbu NFT is the inaugural project of many more exciting adventures and build up of the
+                    intellectual property in the next 50 years.</p>
+                <p>2. Season 2 will only be released in the summer of 2022.</p>
+                <p>3. However, Dabbu NFT collection (Season 1) will remain as one of the most meaningful projects for
+                    Blacwhite Legacy.</p>
+                <p>4. Dabbu NFT Collection will subsequently be available on Opensea as the secondary marketplace;
+                    however, floor prices will not be as low as the launch date minting prices – and we’re not kidding
+                    on this part.</p>
+            </div>
+            <button class="accordion">When is Dabbu NFT launching? <i class="fa fa-chevron-down"></i></button>
+            <div class="panels">
+                <p>We are currently finalizing the exact launch date (s). All collectors will be informed in advance
+                    when it’s time for us to pull the trigger. Till then, we welcome everyone to be part of our
+                    DABBUNATION!</p>
+            </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+
+    </div>
+    <div class="row faqsocial">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <a href="https://opensea.io/collection/dabbu"><img loading="lazy" class="imgg"
+                                                               src="{{url_for('static',filename='assets/images/Opensea.png')}}"
+                                                               alt="Loading Image ..."></a>
+        </div>
+        <div class="col-md-2">
+            <a href="https://discord.com/invite/dabbu"><img loading="lazy" style="height: 85px;"
+                                                            src="{{url_for('static',filename='assets/images/Discord.png')}}"
+                                                            alt="Loading Image ..."></a>
+        </div>
+        <div class="col-md-3">
+            <img loading="lazy" class="imgg" src="{{url_for('static',filename='assets/images/Etherscan.png')}}"
+                 alt="Loading Image ...">
+        </div>
+        <div class="col-md-2">
+            <a href="https://twitter.com/dabbunft"><img loading="lazy" style="height: 100px;"
+                                                        src="{{url_for('static',filename='assets/images/Twitter.png')}}"
+                                                        alt="Loading Image ..."></a>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+<!--      FAQs end here-->
+
+<!-- Featured Starts Here -->
+<div class="featured-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h1>Dabbu is Exclusively Featured On:</h1>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme">
+                    <a href="https://btcpeers.com/dabbu-comic-created-50-years-ago-digitalized-on-the-blockchain-as-nfts/">
+                        <div class="featured-item">
+                            <img loading="lazy" src="{{url_for('static',filename='assets/images/1.png')}}"
+                                 alt="Loading Image ...">
+                        </div>
+                    </a>
+                    <a href="https://www.benzinga.com/markets/cryptocurrency/21/11/24012812/dabbu-comic-created-50-years-ago-digitalized-on-the-blockchain-as-nfts">
+                        <div class="featured-item">
+                            <img loading="lazy"
+                                 src="{{url_for('static',filename='assets/images/benzinga-vector-logo.png')}}"
+                                 alt="Loading Image ...">
+                        </div>
+                    </a>
+                    <a href="https://btcpeers.com/dabbu-comic-created-50-years-ago-digitalized-on-the-blockchain-as-nfts/">
+                        <div class="featured-item">
+                            <img loading="lazy" src="{{url_for('static',filename='assets/images/btc.jpg')}}"
+                                 alt="Loading Image ...">
+                        </div>
+                    </a>
+                    <a href="https://cryptomode.com/dabbu-comic-created-50-years-ago-digitalized-on-the-blockchain-as-nfts/">
+                        <div class="featured-item">
+                            <img loading="lazy" src="{{url_for('static',filename='assets/images/cmode.jpg')}}"
+                                 alt="Loading Image ...">
+                        </div>
+                    </a>
+                    <a href="https://www.digitaljournal.com/pr/dabbu-comic-created-50-years-ago-digitalized-on-the-blockchain-as-nfts">
+                        <div class="featured-item">
+                            <img loading="lazy"
+                                 src="{{url_for('static',filename='assets/images/DigitalJournal-link-logo.jpg')}}"
+                                 alt="Loading Image ...">
+                        </div>
+                    </a>
+                    <a href="https://www.investing.com/news/cryptocurrency-news/dabbu-comic-created-50-years-ago--digitalized-on-the-blockchain-as-nfts-2676243">
+                        <div class="featured-item">
+                            <img loading="lazy"
+                                 src="{{url_for('static',filename='assets/images/m5mXMHAV_400x400.png')}}"
+                                 alt="Loading Image ...">
+                        </div>
+                    </a>
+                    <a href="{{url_for('index')}}">
+                        <div class="featured-item">
+                            <img loading="lazy" src="{{url_for('static',filename='assets/images/Market Insider.png')}}"
+                                 alt="Loading Image ...">
+                        </div>
+                    </a>
+                    <a href="https://www.marketwatch.com/press-release/dabbu-comic-created-50-years-ago-digitalized-on-the-blockchain-as-nfts-2021-11-10?tesla=y">
+                        <div class="featured-item">
+                            <img loading="lazy" src="{{url_for('static',filename='assets/images/mw_logo_social.png')}}"
+                                 alt="Loading Image ...">
+                        </div>
+                    </a>
+                    <a href="{{url_for('index')}}">
+                        <div class="featured-item">
+                            <img loading="lazy"
+                                 src="{{url_for('static',filename='assets/images/Yahoo_News_Logo_white_text.png')}}"
+                                 alt="Loading Image ...">
+                        </div>
+                    </a>
+                    <a href="https://finance.yahoo.com/news/dabbu-comic-created-50-years-180500301.html">
+                        <div class="featured-item">
+                            <img loading="lazy"
+                                 src="{{url_for('static',filename='assets/images/yahoofinancelogo.jpg')}}"
+                                 alt="Loading Image ...">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featred Ends Here -->
+
+
+<!-- Footer Starts Here -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="logo">
+                    <h4>Dabbu</h4>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="footer-menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">How It Works ?</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer Ends Here -->
+{% endblock %}
+
+{% block javascript %}
+<script language="text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+</script>
+<script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                panel.style.display = "none";
+                } else {
+            panel.style.display = "block";
+            }
+            });
+            }
+
+</script>
+<script>
+    /*
+ * jQuery Pagination
+ * Author: Austin Wulf (@austinwulf)
+ *
+ * Call the paginate method on an array
+ * of elements. Accepts # of items per page
+ * as an argument. Defaults to 5.
+ *
+ * Example:
+ *     $(selector).paginate(3);
+ *
+ * Released under the MIT License.
+ *
+ * v 1.0
+ */
+
+(function($){
+
+    var paginate = {
+        startPos: function(pageNumber, perPage) {
+            // determine what array position to start from
+            // based on current page and # per page
+            return pageNumber * perPage;
+        },
+
+        getPage: function(items, startPos, perPage) {
+            // declare an empty array to hold our page items
+            var page = [];
+
+            // only get items after the starting position
+            items = items.slice(startPos, items.length);
+
+            // loop remaining items until max per page
+            for (var i=0; i < perPage; i++) {
+                page.push(items[i]); }
+
+            return page;
+        },
+
+        totalPages: function(items, perPage) {
+            // determine total number of pages
+            return Math.ceil(items.length / perPage);
+        },
+
+        createBtns: function(totalPages, currentPage) {
+            // create buttons to manipulate current page
+            var pagination = $('<div class="pagination" />');
+
+            // add a "first" button
+            pagination.append('<span class="pagination-button">&laquo;</span>');
+
+            // add pages inbetween
+            for (var i=1; i <= totalPages; i++) {
+                // truncate list when too large
+                if (totalPages > 5 && currentPage !== i) {
+                    // if on first two pages
+                    if (currentPage === 1 || currentPage === 2) {
+                        // show first 5 pages
+                        if (i > 5) continue;
+                    // if on last two pages
+                    } else if (currentPage === totalPages || currentPage === totalPages - 1) {
+                        // show last 5 pages
+                        if (i < totalPages - 4) continue;
+                    // otherwise show 5 pages w/ current in middle
+                    } else {
+                        if (i < currentPage - 2 || i > currentPage + 2) {
+                            continue; }
+                    }
+                }
+
+                // markup for page button
+                var pageBtn = $('<span class="pagination-button page-num" />');
+
+                // add active class for current page
+                if (i == currentPage) {
+                    pageBtn.addClass('active'); }
+
+                // set text to the page number
+                pageBtn.text(i);
+
+                // add button to the container
+                pagination.append(pageBtn);
+            }
+
+            // add a "last" button
+            pagination.append($('<span class="pagination-button">&raquo;</span>'));
+
+            return pagination;
+        },
+
+        createPage: function(items, currentPage, perPage) {
+            // remove pagination from the page
+            $('.pagination').remove();
+
+            // set context for the items
+            var container = items.parent(),
+                // detach items from the page and cast as array
+                items = items.detach().toArray(),
+                // get start position and select items for page
+                startPos = this.startPos(currentPage - 1, perPage),
+                page = this.getPage(items, startPos, perPage);
+
+            // loop items and readd to page
+            $.each(page, function(){
+                // prevent empty items that return as Window
+                if (this.window === undefined) {
+                    container.append($(this)); }
+            });
+
+            // prep pagination buttons and add to page
+            var totalPages = this.totalPages(items, perPage),
+                pageButtons = this.createBtns(totalPages, currentPage);
+
+            container.after(pageButtons);
+        }
+    };
+
+    // stuff it all into a jQuery method!
+    $.fn.paginate = function(perPage) {
+        var items = $(this);
+
+        // default perPage to 5
+        if (isNaN(perPage) || perPage === undefined) {
+            perPage = 5; }
+
+        // don't fire if fewer items than perPage
+        if (items.length <= perPage) {
+            return true; }
+
+        // ensure items stay in the same DOM position
+        if (items.length !== items.parent()[0].children.length) {
+            items.wrapAll('<div class="pagination-items" />');
+        }
+
+        // paginate the items starting at page 1
+        paginate.createPage(items, 1, perPage);
+
+        // handle click events on the buttons
+        $(document).on('click', '.pagination-button', function(e) {
+            // get current page from active button
+            var currentPage = parseInt($('.pagination-button.active').text(), 10),
+                newPage = currentPage,
+                totalPages = paginate.totalPages(items, perPage),
+                target = $(e.target);
+
+            // get numbered page
+            newPage = parseInt(target.text(), 10);
+            if (target.text() == '«') newPage = 1;
+            if (target.text() == '»') newPage = totalPages;
+
+            // ensure newPage is in available range
+            if (newPage > 0 && newPage <= totalPages) {
+                paginate.createPage(items, newPage, perPage); }
+        });
+    };
+
+})(jQuery);
+
+/* This part is just for the demo,
+not actually part of the plugin */
+$('.article-loop').paginate(9);
+
+
+
+</script>
+<script>
+    /*
+ * jQuery Pagination
+ * Author: Austin Wulf (@austinwulf)
+ *
+ * Call the paginate method on an array
+ * of elements. Accepts # of items per page
+ * as an argument. Defaults to 5.
+ *
+ * Example:
+ *     $(selector).paginate(3);
+ *
+ * Released under the MIT License.
+ *
+ * v 1.0
+ */
+
+(function($){
+
+    var paginate = {
+        startPos: function(pageNumber, perPage) {
+            // determine what array position to start from
+            // based on current page and # per page
+            return pageNumber * perPage;
+        },
+
+        getPage: function(items, startPos, perPage) {
+            // declare an empty array to hold our page items
+            var page = [];
+
+            // only get items after the starting position
+            items = items.slice(startPos, items.length);
+
+            // loop remaining items until max per page
+            for (var i=0; i < perPage; i++) {
+                page.push(items[i]); }
+
+            return page;
+        },
+
+        totalPages: function(items, perPage) {
+            // determine total number of pages
+            return Math.ceil(items.length / perPage);
+        },
+
+        createBtns: function(totalPages, currentPage) {
+            // create buttons to manipulate current page
+            var pagination = $('<div class="paginations" />');
+
+            // add a "first" button
+            pagination.append('<span class="paginations-button">&laquo;</span>');
+
+            // add pages inbetween
+            for (var i=1; i <= totalPages; i++) {
+                // truncate list when too large
+                if (totalPages > 5 && currentPage !== i) {
+                    // if on first two pages
+                    if (currentPage === 1 || currentPage === 2) {
+                        // show first 5 pages
+                        if (i > 5) continue;
+                    // if on last two pages
+                    } else if (currentPage === totalPages || currentPage === totalPages - 1) {
+                        // show last 5 pages
+                        if (i < totalPages - 4) continue;
+                    // otherwise show 5 pages w/ current in middle
+                    } else {
+                        if (i < currentPage - 2 || i > currentPage + 2) {
+                            continue; }
+                    }
+                }
+
+                // markup for page button
+                var pageBtn = $('<span class="paginations-button page-num" />');
+
+                // add active class for current page
+                if (i == currentPage) {
+                    pageBtn.addClass('active'); }
+
+                // set text to the page number
+                pageBtn.text(i);
+
+                // add button to the container
+                pagination.append(pageBtn);
+            }
+
+            // add a "last" button
+            pagination.append($('<span class="paginations-button">&raquo;</span>'));
+
+            return pagination;
+        },
+
+        createPage: function(items, currentPage, perPage) {
+            // remove pagination from the page
+            $('.paginations').remove();
+
+            // set context for the items
+            var container = items.parent(),
+                // detach items from the page and cast as array
+                items = items.detach().toArray(),
+                // get start position and select items for page
+                startPos = this.startPos(currentPage - 1, perPage),
+                page = this.getPage(items, startPos, perPage);
+
+            // loop items and readd to page
+            $.each(page, function(){
+                // prevent empty items that return as Window
+                if (this.window === undefined) {
+                    container.append($(this)); }
+            });
+
+            // prep pagination buttons and add to page
+            var totalPages = this.totalPages(items, perPage),
+                pageButtons = this.createBtns(totalPages, currentPage);
+
+            container.after(pageButtons);
+        }
+    };
+
+    // stuff it all into a jQuery method!
+    $.fn.paginate = function(perPage) {
+        var items = $(this);
+
+        // default perPage to 5
+        if (isNaN(perPage) || perPage === undefined) {
+            perPage = 5; }
+
+        // don't fire if fewer items than perPage
+        if (items.length <= perPage) {
+            return true; }
+
+        // ensure items stay in the same DOM position
+        if (items.length !== items.parent()[0].children.length) {
+            items.wrapAll('<div class="pagination-items" />');
+        }
+
+        // paginate the items starting at page 1
+        paginate.createPage(items, 1, perPage);
+
+        // handle click events on the buttons
+        $(document).on('click', '.paginations-button', function(e) {
+            // get current page from active button
+            var currentPage = parseInt($('.paginations-button.active').text(), 10),
+                newPage = currentPage,
+                totalPages = paginate.totalPages(items, perPage),
+                target = $(e.target);
+
+            // get numbered page
+            newPage = parseInt(target.text(), 10);
+            if (target.text() == '«') newPage = 1;
+            if (target.text() == '»') newPage = totalPages;
+
+            // ensure newPage is in available range
+            if (newPage > 0 && newPage <= totalPages) {
+                paginate.createPage(items, newPage, perPage); }
+        });
+    };
+
+})(jQuery);
+
+/* This part is just for the demo,
+not actually part of the plugin */
+$('.Christmas').paginate(3);
+
+
+
+</script>
+
+
+<script>
+    /*
+ * jQuery Pagination
+ * Author: Austin Wulf (@austinwulf)
+ *
+ * Call the paginate method on an array
+ * of elements. Accepts # of items per page
+ * as an argument. Defaults to 5.
+ *
+ * Example:
+ *     $(selector).paginate(3);
+ *
+ * Released under the MIT License.
+ *
+ * v 1.0
+ */
+
+(function($){
+
+    var paginate = {
+        startPos: function(pageNumber, perPage) {
+            // determine what array position to start from
+            // based on current page and # per page
+            return pageNumber * perPage;
+        },
+
+        getPage: function(items, startPos, perPage) {
+            // declare an empty array to hold our page items
+            var page = [];
+
+            // only get items after the starting position
+            items = items.slice(startPos, items.length);
+
+            // loop remaining items until max per page
+            for (var i=0; i < perPage; i++) {
+                page.push(items[i]); }
+
+            return page;
+        },
+
+        totalPages: function(items, perPage) {
+            // determine total number of pages
+            return Math.ceil(items.length / perPage);
+        },
+
+        createBtns: function(totalPages, currentPage) {
+            // create buttons to manipulate current page
+            var pagination = $('<div class="paginationss" />');
+
+            // add a "first" button
+            pagination.append('<span class="paginationss-button">&laquo;</span>');
+
+            // add pages inbetween
+            for (var i=1; i <= totalPages; i++) {
+                // truncate list when too large
+                if (totalPages > 5 && currentPage !== i) {
+                    // if on first two pages
+                    if (currentPage === 1 || currentPage === 2) {
+                        // show first 5 pages
+                        if (i > 5) continue;
+                    // if on last two pages
+                    } else if (currentPage === totalPages || currentPage === totalPages - 1) {
+                        // show last 5 pages
+                        if (i < totalPages - 4) continue;
+                    // otherwise show 5 pages w/ current in middle
+                    } else {
+                        if (i < currentPage - 2 || i > currentPage + 2) {
+                            continue; }
+                    }
+                }
+
+                // markup for page button
+                var pageBtn = $('<span class="paginationss-button page-num" />');
+
+                // add active class for current page
+                if (i == currentPage) {
+                    pageBtn.addClass('active'); }
+
+                // set text to the page number
+                pageBtn.text(i);
+
+                // add button to the container
+                pagination.append(pageBtn);
+            }
+
+            // add a "last" button
+            pagination.append($('<span class="paginationss-button">&raquo;</span>'));
+
+            return pagination;
+        },
+
+        createPage: function(items, currentPage, perPage) {
+            // remove pagination from the page
+            $('.paginationss').remove();
+
+            // set context for the items
+            var container = items.parent(),
+                // detach items from the page and cast as array
+                items = items.detach().toArray(),
+                // get start position and select items for page
+                startPos = this.startPos(currentPage - 1, perPage),
+                page = this.getPage(items, startPos, perPage);
+
+            // loop items and readd to page
+            $.each(page, function(){
+                // prevent empty items that return as Window
+                if (this.window === undefined) {
+                    container.append($(this)); }
+            });
+
+            // prep pagination buttons and add to page
+            var totalPages = this.totalPages(items, perPage),
+                pageButtons = this.createBtns(totalPages, currentPage);
+
+            container.after(pageButtons);
+        }
+    };
+
+    // stuff it all into a jQuery method!
+    $.fn.paginate = function(perPage) {
+        var items = $(this);
+
+        // default perPage to 5
+        if (isNaN(perPage) || perPage === undefined) {
+            perPage = 5; }
+
+        // don't fire if fewer items than perPage
+        if (items.length <= perPage) {
+            return true; }
+
+        // ensure items stay in the same DOM position
+        if (items.length !== items.parent()[0].children.length) {
+            items.wrapAll('<div class="pagination-items" />');
+        }
+
+        // paginate the items starting at page 1
+        paginate.createPage(items, 1, perPage);
+
+        // handle click events on the buttons
+        $(document).on('click', '.paginationss-button', function(e) {
+            // get current page from active button
+            var currentPage = parseInt($('.paginationss-button.active').text(), 10),
+                newPage = currentPage,
+                totalPages = paginate.totalPages(items, perPage),
+                target = $(e.target);
+
+            // get numbered page
+            newPage = parseInt(target.text(), 10);
+            if (target.text() == '«') newPage = 1;
+            if (target.text() == '»') newPage = totalPages;
+
+            // ensure newPage is in available range
+            if (newPage > 0 && newPage <= totalPages) {
+                paginate.createPage(items, newPage, perPage); }
+        });
+    };
+
+})(jQuery);
+
+/* This part is just for the demo,
+not actually part of the plugin */
+$('.article-looppp').paginate(3);
+
+
+</script>
+{% endblock %}
